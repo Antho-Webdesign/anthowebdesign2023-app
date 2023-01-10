@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<style>
+
+.flex-slide:hover .flex-title{
+    transform: none;
+    }
+
+.flex-slide:hover .flex-about {
+    opacity: 1;
+}
+
+</style>
+
+<div class="flex-container">
+<!-- ===== SLIDE Blog ===== -->
+	<div class="flex-slide home">
+		<div class="flex-title flex-title-home">
+            <a href="{% url 'index_blog' %}">Blog</a>
+        </div>
+        <div class="flex-about flex-about-home">
+            <p>
+                <a href="{% url 'index_blog' %}">Liste des articles de blog autour du monde numérique</a>
+            </p>
+        </div>
+	</div>
+<!-- ===== SLIDE Tutorielles ===== -->
+	<div class="flex-slide about">
+        <div class="flex-title">Tutoriels</div>
+		<div class="flex-about">
+            <p>Fonctionnalité en cours de développement...</p>
+            <ul>
+                <li>
+                    <a href="#">Html / Css / Js</a>
+                </li>
+
+                <li>
+                    <a href="#">Php (framework: Symfony)</a>
+                </li>
+
+                <li>
+                    <a href="#">Python (framework: Django)</a>
+                </li>
+            </ul>
+        </div>
+	</div>
+<!-- ===== SLIDE Portfolio ===== -->
+	<div class="flex-slide work">
+		<div class="flex-title">
+            <a href="{% url 'index_portfolio' %}">Portfolio</a>
+        </div>
+		<div class="flex-about">
+			<ul>
+				<li>Mes Skills</li>
+				<li>Mes environnements</li>
+				<li>Mes projets</li>
+			</ul>
+		</div>
+	</div>
+<!-- ===== SLIDE Contact ===== -->
+	<div class="flex-slide contact">
+        <div class="flex-title">
+            <a href="{% url 'contact' %}">Contact</a>
+        </div>
+        <div class="flex-about">
+            <p>
+                <a href="{% url 'contact' %}">N'hésitez pas à me contacter !</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

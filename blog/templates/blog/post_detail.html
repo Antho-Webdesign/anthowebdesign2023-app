@@ -1,0 +1,144 @@
+{% extends 'blog/base_blog.html' %}
+{% load static %}
+
+{% block content %}
+    <style>
+        .separateur {
+            border-bottom: 1px solid #292727;
+            margin: 45px auto;
+            padding: 0 !important;
+        }
+
+        .card-text {
+            color: black;
+            width: 100%;
+            display: flex;
+            max-width: none;
+            text-align: justify;
+            line-height: 2;
+            font-size: 1.3em;
+            margin: 0;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: none;
+            justify-content: center;
+            margin: auto;
+            min-width: 700px;
+        }
+
+        .post-subtitle {
+            font-size: 0.9em;
+            margin: 0;
+            color: #ea0c93;
+            font-weight: bold;
+            font-style: oblique;
+        }
+
+        .col-md-8 {
+            display: flex;
+            padding: 50px;
+        }
+
+        .post-title {
+            color: black;
+        }
+
+        .flex-post-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .post-img {
+            width: 25%;
+            border-radius: 15px;
+        }
+
+        @media screen and (max-width: 850px) {
+
+            .container {
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                width: 95%;
+                justify-content: center;
+                margin: auto;
+            }
+
+            .row {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                margin: 0;
+            }
+
+            .card-body {
+                display: flex !important;
+                flex-direction: column !important;
+                width: 100% !important;
+                margin: 0;
+                min-width: 90% !important;
+                padding: 0;
+                text-align: center;
+            }
+
+            .card-corp {
+                padding: 10px !important;
+            }
+
+            .card-text {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+
+    <!-- ===== container article ===== -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 card mb-4 card-corp mt-3 left top">
+
+                <div class="card-body">
+                    <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+                    <!-- head du blog -->
+                    <div class="flex-post-head">
+                        <h1 class="post-title">{{ post.title }}</h1>
+                        <img class="post-img" src="{{ post.thumbnail.url }}" alt="image du post">
+                    </div>
+
+                    <!-- ===== body du blog ===== -->
+                    <!-- auteur et date -->
+                    <p class="text-muted">
+                        {{ post.author }} | {{ post.created_on|date:"d/m/Y" }}
+                    </p>
+
+                    <!-- contenu de l'article du blog -->
+                    <p class="card-text">
+                        {{ post.content | safe }}
+                    </p>
+
+                    <div class="separateur"></div>
+
+                    <p class="card-text">
+                        {{ post.content2 | safe }}
+                    </p>
+
+                    <div class="separateur"></div>
+
+                    <p class="card-text">
+                        {{ post.content3 | safe }}
+                    </p>
+
+                    <!-- ===== bouton retour liste ===== -->
+                    <a class="btn btn-warning" href="{% url 'index_blog' %}">Retour accueil</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

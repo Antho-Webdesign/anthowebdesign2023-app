@@ -1,0 +1,49 @@
+{% extends 'portfolio/base_pr.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Boucle sur les projets -->
+<style>
+
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.card__content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+ text-align: center;
+ margin: 80px auto;
+}
+
+</style>
+    <div class="title">
+        <h1>Liste de mes projetss</h1>
+    </div>
+
+    <div class="box">
+        {% for category in project_list %}
+                <div class="card">
+
+                    <div class="card__content">
+                        <h2 class="card__title animate text-dark text-bold">
+                            <a href="javascript:" class="text-dark">{{ category.category.category_name }}</a>
+                        </h2>
+                        <p class="text-dark"> {{ category.category.description_cat }}</p>
+                    </div>
+                    <button class="card__btn">
+                        <a href="{% url 'projet_web' %}"><!-- TODO : Lien vers la page liste site vitrine -->
+                            <i class="fa fa-arrow-right fa-fw"></i>
+                        </a>
+
+                    </button>
+                </div>
+        {% endfor %}
+    </div>
+{% endblock %}

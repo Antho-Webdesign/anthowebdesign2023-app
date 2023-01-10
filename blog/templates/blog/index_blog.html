@@ -1,0 +1,272 @@
+{% extends 'blog/base_blog.html' %}
+{% load static %}
+
+{% block content %}
+
+    <style>
+        :root {
+            --main-font: "Lato", sans-serif;
+            --secondary-font: "Playfair Display", serif;
+            --main-bg: #f4f4f1;
+            --selection-bg: #fffaa3;
+            --grey: #6a6a6a;
+            --dark: #444;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        *::selection {
+            background-color: var(--selection-bg);
+        }
+
+        body {
+            background-color: var(--main-bg);
+            letter-spacing: 0.5px;
+        }
+
+        img {
+            width: 100%;
+            vertical-align: top;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* :: card :: */
+        .card {
+            max-width: 850px;
+            width: 95%;
+            margin-inline: auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            margin-bottom: 40px;
+        }
+
+        .card__thumb {
+            overflow: hidden;
+            background-color: var(--grey);
+        }
+
+        .card__thumb:hover img {
+            transform: scale(1.1);
+        }
+
+        .card__content {
+            position: relative;
+            background-color: white;
+            padding: 45px;
+            text-align: center;
+        }
+
+        .card__title {
+            font-family: var(--secondary-font);
+            margin-bottom: 20px;
+            font-size: 35px;
+            font-weight: 400;
+        }
+
+        .card__title:hover {
+            color: var(--grey);
+        }
+
+        .card__text {
+            font-family: var(--main-font);
+            color: var(--dark);
+            line-height: 25px;
+        }
+
+        .card__btn {
+            border: none;
+            background: var(--dark);
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .card__btn:focus-visible, .card__btn:focus, .card__btn:active {
+            background-color: var(--grey);
+        }
+
+        /* :: utilities :: */
+        .animate {
+            transition: all 0.3s ease;
+        }
+
+        /* :: mediaqueries :: */
+        @media (min-width: 850px) {
+            .card {
+                grid-template-columns: auto minmax(100px, 470px) auto;
+                grid-template-rows: repeat(2, 1fr) auto auto;
+            }
+
+            .card__thumb {
+                max-width: 700px;
+                justify-self: center;
+                grid-area: 1/1/-2/-1;
+            }
+
+            .card__content {
+                grid-area: 3/2/-1/-2;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .card {
+                grid-template-columns: auto 70px minmax(100px, 400px);
+                grid-template-rows: repeat(3, auto);
+            }
+
+            .card:nth-child(even) {
+                grid-template-columns: minmax(100px, 400px) 70px auto;
+            }
+
+            .card__thumb {
+                grid-area: 1/1/-1/3;
+            }
+
+            .card:nth-child(even) .card__thumb {
+                grid-area: 1/2/-1/-1;
+            }
+
+            .card__content {
+                grid-area: 2/2/-2/-1;
+                text-align: left;
+            }
+
+            .card:nth-child(even) .card__content {
+                text-align: left;
+                grid-area: 2/1/-2/3;
+            }
+        }
+
+        .card > div > p {
+            font-size: 0.9em;
+        }
+
+        @media screen and (max-width: 850px) {
+            body {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    </style>
+    <div class="box">
+
+        <div class="card">
+            <div class="card__thumb">
+                <a href="javascript:">
+                    <img class="animate" src="https://thumbs.dreamstime.com/b/web-html-codage-site-frontend-d%C3%A9veloppement-du-langage-de-programmation-pour-le-arri%C3%A8re-plan-m%C3%A9dia-mixte-213091266.jpg" alt="img"/>
+                </a>
+            </div>
+            <div class="card__content">
+                <h2 class="card__title animate text-dark">
+                    <a href="javascript:">L'actus des devs</a>
+                </h2>
+                <p class="card__text">
+                    <cite>"Codez comme si la personne qui finit par maintenir votre code est un psychopathe violent qui
+                        sait où vous vivez."</cite>
+                    <br>
+                    <br>
+                    <strong>- Jeff Atwood</strong>
+                </p>
+                <button class="card__btn">
+                    <a href="{% url 'blog_post_dev' %}">
+                        <i class="fa fa-arrow-right fa-fw"></i>
+                    </a>
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card__thumb">
+                <a href="javascript:">
+                    <img class="animate" src="https://www.confiance-numerique.fr/wp-content/uploads/2017/05/cyberattaque.jpg" alt="img"/>
+                </a>
+            </div>
+            <div class="card__content">
+                <h2 class="card__title animate text-dark">
+                    <a href="javascript:">L'actus Cyber</a>
+                </h2>
+                <p class="card__text">
+                    <cite>"Ceux qui peuvent renoncer à une liberté essentielle pour obtenir un peu de sécurité
+                        temporaire ne méritent ni la liberté ni la sécurité.”</cite>
+                    <br>
+                    <br>
+                    <strong>- Benjamin Franklin</strong>
+                </p>
+                <button class="card__btn">
+                    <a href="{% url 'blog_post_cyber' %}">
+                        <i class="fa fa-arrow-right fa-fw"></i>
+                    </a>
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card__thumb">
+                <a href="javascript:">
+                    <img class="animate"
+                         src="https://ae01.alicdn.com/kf/H288775288a7c4a368ab426788e4f27e4n/Tezos-pi-ce-de-monnaie-XTZ-en-forme-de-cryptomonnaie-en-plaqu-or-pour-la-d.jpg_Q90.jpg_.webp"
+                         alt="img"/>
+                </a>
+            </div>
+            <div class="card__content">
+                <h2 class="card__title animate text-dark">
+                    <a href="javascript:">L'actus des cryptos</a>
+                </h2>
+                <p class="card__text">
+                    <cite>" Le bitcoin fera aux banques ce que les e-mails ont fait au secteur postal "</cite>
+                    <br>
+                    <br>
+                    <strong> - Rick Falkvinge</strong>
+                </p>
+                <button class="card__btn">
+                    <a href="{% url 'blog_post_cryptos' %}">
+                        <i class="fa fa-arrow-right fa-fw"></i>
+                    </a>
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card__thumb">
+                <a href="javascript:">
+                    <img class="animate"
+                         src="https://www.ifop.com/wp-content/uploads/2021/01/intelligence-artificielle-e1611834493481.jpeg"
+                         alt="img"/>
+                </a>
+            </div>
+            <div class="card__content">
+                <h2 class="card__title animate text-dark">
+                    <a href="javascript:">I.A actus</a>
+                </h2>
+                <p class="card__text">
+                    <cite>"l'intelligence artificielle ne fait pas le poids face à la stupidité naturelle."</cite>
+                    <br>
+                    <br>
+                    <strong> - Albert Einstein</strong>
+                </p>
+                <button class="card__btn">
+                    <a href="{% url 'blog_post_ia' %}">
+                        <i class="fa fa-arrow-right fa-fw"></i>
+                    </a>
+                </button>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

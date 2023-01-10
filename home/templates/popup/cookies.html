@@ -1,0 +1,99 @@
+{% block cookies %}
+<!-- popup de consentement de cookies -->
+<div id="cookieConsent" class="cookieConsent">
+    <div class="cookieConsent__content">
+        <div class="cookieConsent__text">
+            <p>En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour vous proposer des contenus et services adaptés à vos centres d’intérêts et réaliser des statistiques de visites.</p>
+        </div>
+        <div class="cookieConsent__buttons">
+            <button class="cookieConsent__button" id="cookieConsent__button--accept">Accepter</button>
+            <button class="cookieConsent__button" id="cookieConsent__button--refuse">Refuser</button>
+        </div>
+    </div>
+</div>
+
+<!-- script JS -->
+<script>
+    window.onload = function() {
+  // Afficher le popup de consentement de cookies
+document.getElementById("cookieConsent").style.display = "block";
+    // Ajouter un événement au clic sur le bouton "Accepter"
+document.getElementById("cookieConsent__button--accept").addEventListener("click", function() {
+    // Ajouter un cookie de consentement de cookies
+    setCookie("cookieConsent", "true", 365);
+    // Cacher le popup de consentement de cookies
+    document.getElementById("cookieConsent").style.display = "none";
+});
+    // Ajouter un événement au clic sur le bouton "Refuser"
+document.getElementById("cookieConsent__button--refuse").addEventListener("click", function() {
+    // Ajouter un cookie de consentement de cookies
+    setCookie("cookieConsent", "false", 365);
+    // Cacher le popup de consentement de cookies
+    document.getElementById("cookieConsent").style.display = "none";
+});
+    // Vérifier si le cookie de consentement de cookies existe
+if (getCookie("cookieConsent") == "true") {
+    // Cacher le popup de consentement de cookies
+    document.getElementById("cookieConsent").style.display = "none";
+}
+    // Vérifier si le cookie de consentement de cookies existe
+if (getCookie("cookieConsent") == "false") {
+    // Cacher le popup de consentement de cookies
+    document.getElementById("cookieConsent").style.display = "none";
+
+    // Supprimer les cookies de Google Analytics
+    deleteCookie("_ga");
+    deleteCookie("_gid");
+    deleteCookie("_gat");
+
+    // Supprimer les cookies de Google Tag Manager
+    deleteCookie("_dc_gtm_UA-XXXXXXXXX-X");
+    deleteCookie("_gaexp");
+    deleteCookie("_gat_UA-XXXXXXXXX-X");
+}
+}
+    // Fonction pour créer un cookie
+function setCookie(name, value, days) {
+
+    // Définir le nombre de jours avant l'expiration du cookie
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+
+    // Créer le cookie
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+    // Fonction pour récupérer un cookie
+function getCookie(name) {
+            // Créer le nom du cookie
+    var nameEQ = name + "=";
+    // Créer un tableau avec tous les cookies
+    var ca = document.cookie.split(';');
+    // Parcourir tous les cookies
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        // Supprimer les espaces inutiles
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1, c.length);
+        }
+        // Retourner le cookie s'il existe
+        if (c.indexOf(nameEQ) == 0) {
+            return c.substring(nameEQ.length, c.length);
+        }
+    }
+    // Retourner null si le cookie n'existe pas
+    return null;
+}
+    // Fonction pour supprimer un cookie
+function deleteCookie(name) {
+    // Définir la date d'expiration du cookie dans le passé
+    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+</script>
+
+
+
+{% endblock %}
