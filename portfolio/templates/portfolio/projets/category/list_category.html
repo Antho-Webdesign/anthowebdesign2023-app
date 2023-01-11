@@ -2,83 +2,76 @@
 {% load static %}
 
 {% block content %}
-    <!-- Boucle sur les projets -->
-<style>
-.box {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    width: 100%;
 
-}
-.card {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
+    <style>
 
-.card__content {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-}
+        .card-cat {
+            display: flex;
+            width: 66% !important;
+            color: black;
+            background: #fff;
+            align-items: center;
+            margin: 50px auto;
+        }
 
-.title {
- text-align: center;
- margin: 80px auto;
-}
+        .card-img-top {
+            width: 100% !important;
+            height: 100% !important;
+            max-height: 400px;
+        }
 
-@media screen and (max-width: 850px) {
-    body {
-      width: 100%;
-      margin: 0 !important;
-      padding: 0;
-    }
+        .card-body {
+            display: flex;
+            height: 75%;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 0px 40px;
+            width: 100%;
+        }
 
-    .box {
-      margin: auto;
-      width: 90%;
-      padding: 0;
-      justify-content: center;
-    }
+        .card-text {
+            font-size: 1.2em;
+            font-style: oblique;
+            line-height: 1.8;
+        }
+    </style>
+    <div class="title">
+        <h1>Liste des categories</h1>
+    </div>
 
-    .card {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      margin: 40px 0;
-    }
+    <div class="box">
 
-    .card__content {
-      justify-content: center;
-      margin: 0;
-      padding: 0 !important;
-      width: 100%;
-    }
-
-}
-</style>
-<div class="title">
-	<h1>Liste des categories</h1>
-</div>
-
-<div class="box">
-	{% for cat in categorie_list %}
-
-        <div class="card">
-            <img class="animate" src="{{ cat.image_cat.url }}" alt="img" style="height: 100%; margin: 0; padding: 0;"/>
-            <div class="card__content">
-                <h2 class="card__title animate text-dark"><a href="javascript:" class="text-dark">{{ cat.category_name }}</a></h2>
-                <p class="text-dark">{{ cat.projet_cat_description }}</p>
+        {% for cat in categorie_list %}
+            <div class="card-cat text-dark">
+                <img class="animate card-img-top" src="{{ cat.image_cat.url }}" alt="img"/>
+                <div class="card-body">
+                    <h3 class="card-title text-center">{{ cat.category_name }}</h3>
+                    <p class="card-text">{{ cat.projet_cat_description }}</p>
+                    <a href="{% url 'project_list' cat.slug %}" class="btn btn-primary"
+                       style="width:25%; margin: 0 auto;">
+                        <i class="fa fa-arrow-right fa-fw"></i>
+                    </a>
+                </div>
             </div>
-            <button class="card__btn">
-                <a href="{% url 'project_list' cat.slug %}">
-                    <!-- TODO : Lien vers la page liste site vitrine -->
-                    <i class="fa fa-arrow-right fa-fw"></i></a>
-            </button>
-        </div>
+        {% endfor %}
 
-	{% endfor %}
-</div>
+        {% comment %}
+            <div class="card">
+                <img class="animate" src="{{ cat.image_cat.url }}" alt="img"
+                     style="height: 100%; margin: 0; padding: 0;"/>
+                <div class="card__content">
+                    <h2 class="card__title animate text-dark">
+                        <a href="javascript:" class="text-dark">{{ cat.category_name }}</a></h2>
+                    <p class="text-dark">{{ cat.projet_cat_description }}</p>
+                </div>
+                <button class="card__btn">
+                    <a href="{% url 'project_list' cat.slug %}">
+                        <!-- TODO : Lien vers la page liste site vitrine -->
+                        <i class="fa fa-arrow-right fa-fw"></i></a>
+                </button>
+            </div>
+
+        {% endfor %}
+        {% endcomment %}
+    </div>
 {% endblock %}

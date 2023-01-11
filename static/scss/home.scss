@@ -2232,18 +2232,12 @@ div.btn {
  margin-right: 50px;
 }
 
-
-
-/* Élément | http://127.0.0.1:8000/blog/index/ */
-
 .list-group {
   display: flex;
   justify-content: space-around;
   margin: auto;
   flex-direction: column;
 }
-
-/* bootstrap.min.css | https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css */
 
 .gap-3 {
   height: 200px;
@@ -2296,9 +2290,8 @@ a {
   max-width: 850px;
   width: 95%;
   margin-inline: auto;
-  display: grid;
-  grid-template-columns: 1fr;
-  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
 
   &__thumb {
     overflow: hidden;
@@ -2357,11 +2350,12 @@ a {
   transition: all 0.3s ease;
 }
 
-/* :: mediaqueries :: */
+
+/*--------------------------------------------------------------
+# index portfolio
+--------------------------------------------------------------*/
 @media (min-width: 680px) {
   .card {
-    grid-template-columns: auto minmax(100px, 470px) auto;
-    grid-template-rows: repeat(2, 1fr) auto auto;
 
     &__thumb {
       max-width: 700px;
@@ -2453,6 +2447,156 @@ a:hover:after {
 *  BTN voir projet
 */
 .card__title {
-  /* font-size: 35px; */
   font-size: 1.7em;
+}
+
+
+
+@media screen and (max-width: 850px) {
+    .box-env {
+      display: flex;
+      width: 80%;
+      margin: 30px auto;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      padding: 0;
+    }
+
+    .icon-box {
+      width: 50%;
+      justify-content: center;
+      margin: auto;
+    }
+
+    .row {
+      display: flex;
+      width: 100%;
+      margin: 0;
+      flex-direction: column;
+    }
+
+    .icon-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 0;
+      width: 100%;
+    }
+
+    .title {
+      margin: 0 !important;
+      text-align: center;
+    }
+
+    .description {
+      margin: 20px 0 !important;
+    }
+}
+
+
+
+/*--------------------------------------------------------------
+# portfolio:list_category
+--------------------------------------------------------------*/
+.box {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 100%;
+
+}
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.card__content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+ text-align: center;
+ margin: 80px auto;
+}
+
+@media screen and (max-width: 850px) {
+    body {
+      width: 100%;
+      margin: 0 !important;
+      padding: 0;
+    }
+
+    .box {
+      margin: auto;
+      width: 90%;
+      padding: 0;
+      justify-content: center;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin: 40px 0;
+    }
+
+    .card__content {
+      justify-content: center;
+      margin: 0;
+      padding: 0 !important;
+      width: 100%;
+    }
+
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  margin: 50px auto;
+  align-items: center;
+}
+
+/*--------------------------------------------------------------
+# portfolio:list_projet
+--------------------------------------------------------------*/
+
+.card__content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+ text-align: center;
+ margin: 80px auto;
+}
+
+@media screen and (max-width: 850px) {
+    body {
+      width: 100%;
+      margin: 0 !important;
+      padding: 0;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+      justify-content: center;
+      margin: 50px auto;
+    }
+
+    .card__content {
+      justify-content: center;
+      margin: 0;
+      padding: 0 !important;
+      width: 100%;
+    }
 }
