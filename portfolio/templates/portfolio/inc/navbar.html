@@ -85,7 +85,7 @@
                         <li>
                             <a href="{% url 'index_portfolio' %}" class="active">
                                 <i class="fa fa-solid fa-house"></i>
-                                <i class="fas fa-house"></i>
+                                Home
                             </a>
                         </li>
 
@@ -94,24 +94,28 @@
                         </li>
 
                         <!-- ===== Dropdown ===== -->
+                        <!-- ===== Dropdown ===== -->
                         <li class="dropdown">
                             <a href="{% url 'project_category_list' %}">
-                                <span>Categories</span>
+                                <span>Catégories</span>
                                 <i class="bi bi-chevron-down dropdown-indicator"></i>
                             </a>
-
                             <ul>
-                                {% for categorie in categories_list %}
+                               {% for cat in categorie_list %}
                                     <li>
-                                        <a href="{% url 'project_category_detail' cat.slug %}">{{ cat.category_name }}</a>
+                                        <a href="{% url 'project_list' cat.slug %}">{{ cat.category_name }}</a>
                                     </li>
                                 {% endfor %}
+                                <!-- eco déménagement -->
+
                             </ul>
                         </li>
-                        <!-- ===== End sub Dropdown ===== -->
-                        <li>
-                            <a href="{% url 'contact' %}">Contact</a>
-                        </li>
+                    </ul>
+
+                    <!-- ===== End sub Dropdown ===== -->
+                    <li>
+                        <a href="{% url 'contact' %}">Contact</a>
+                    </li>
                     </ul>
                 </nav>
                 <!-- .navbar -->
