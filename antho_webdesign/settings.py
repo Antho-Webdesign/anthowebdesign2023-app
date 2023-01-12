@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_sass_compiler',
+    'django_bootstrap5',
     'home',
     'portfolio',
     'blog',

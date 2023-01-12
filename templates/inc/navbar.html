@@ -1,0 +1,113 @@
+{% load static %}
+{% block navbar %}
+<style>
+
+#offcanvasNavbarDark {
+  width: 40%;
+}
+
+</style>
+    <header>
+    <!-- ======= Header ======= -->
+    <nav class="navbar navbar-dark bg-dark" aria-label="Dark offcanvas navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Dark offcanvas navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbarDark" aria-controls="offcanvasNavbarDark">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbarDark"
+                 aria-labelledby="offcanvasNavbarDarkLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarDarkLabel">Offcanvas</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                            </a>
+
+                        <li class="dropdown">
+                            <a href="#">
+                                <span>Blog</span>
+                                <i class="bi bi-chevron-down dropdown-indicator"></i>
+                            </a>
+                            <ul>
+                                <!-- eco déménagement -->
+                                <li class="dropdown">
+                                    <a href="#">
+                                        <span>Catégories</span>
+                                        <i class="bi bi-chevron-down dropdown-indicator"></i>
+                                    </a>
+                                </li>
+                                <!-- la cordée numérique -->
+                                <li>
+                                    <a href="{% url 'blog_post_dev' %}">Développement</a>
+                                </li>
+                                <!-- la cordée numérique -->
+                                <li>
+                                    <a href="{% url 'blog_post_cyber' %}">Cybersécurité</a>
+                                </li>
+
+                                <!-- pizzeria -->
+                                <li>
+                                    <a href="{% url 'blog_post_ia' %}">Intelligence artificielle</a>
+                                </li>
+
+                                <!-- cryptommonnaie -->
+                                <li>
+                                    <a href="{% url 'blog_post_cryptos' %}">Cryptomonnaie</a>
+                                </li>
+                            </ul>
+                        </li>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                            </a>
+                        <li class="dropdown">
+                            <a href="#">
+                                <span>Portfolio</span>
+                                <i class="bi bi-chevron-down dropdown-indicator"></i>
+                            </a>
+                            <ul>
+                                <!-- eco déménagement -->
+                                <li class="dropdown">
+                                    <a href="{% url 'project_category_list' %}">
+                                <span>Catégories</span>
+                                <i class="bi bi-chevron-down dropdown-indicator"></i>
+                            </a>
+                            <ul>
+                                {% for cat in categorie_list %}
+                                    <li>
+                                        <a href="{% url 'project_list' cat.slug %}">{{ cat.category_name }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    </header>
+{% endblock %}

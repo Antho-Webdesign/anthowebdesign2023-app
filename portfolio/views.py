@@ -19,7 +19,7 @@ def navbar(request):
         'categories_list': categorie,
         'projects_list': project,
     }
-    return render(request, 'portfolio/inc/navbar.html', context)
+    return render(request, 'inc/navbar.html', context)
 
 
 def footer(request):

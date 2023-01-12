@@ -11,3 +11,4 @@ Pillow==9.4.0
 psycopg2==2.9.5
 sqlparse==0.4.3
 whitenoise==6.3.0
+django-bootstrap5
