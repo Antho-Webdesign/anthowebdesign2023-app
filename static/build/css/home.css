@@ -8,8 +8,12 @@
 /* Colors */
 :root {
   --color-default: #fafafa;
-  --color-primary: #27a776;
+  --color-primary: #00b894;
   --color-secondary: #161718;
+  --color-tertiary: #3ca5ef;
+  --color-quaternary: #0984e3;
+  --color-quinary: #6c5ce7;
+  --color-senary: #5d038a;
 }
 
 /* Smooth scroll behavior */
