@@ -1,4 +1,6 @@
 from django.shortcuts import render, get_object_or_404
+
+from blog.models import Post, Category
 from portfolio.models import Categorie, Project, Certificat
 
 
@@ -13,11 +15,16 @@ def base(request):
 
 
 def navbar(request):
-    categorie = Categorie.objects.all()
-    project = Project.objects.all()
+    categories = Categorie.objects.all()
+    projects = Project.objects.all()
+    posts = Post.objects.all()
+    cat_blog = Category.objects.all()
+
     context = {
-        'categories_list': categorie,
-        'projects_list': project,
+        'categories_list': categories,
+        'projects_list': projects,
+        'posts_list': posts,
+        "cat_blog_list": cat_blog,
     }
     return render(request, 'inc/navbar.html', context)
 

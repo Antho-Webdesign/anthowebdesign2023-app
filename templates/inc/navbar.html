@@ -1,96 +1,176 @@
 {% load static %}
 {% block navbar %}
+    {% load django_bootstrap5 %}
     <style>
 
-        .navbar-nav li:hover > ul.dropdown-menu {
-            display: block;
+        @media (max-width: 840px) {
+
+            .cache {
+                justify-content: center;
+                margin: auto;
+            }
+
+            .navbar-nav {
+                display: flex;
+                justify-content: center;
+                margin: auto;
+            }
+
+            .cache {
+                display: flex;
+            }
+
+            .nav-lg {
+                display: none;
+            }
+
+            #header::before {
+                position: fixed;
+            }
+
+            #header::after {
+                position: fixed;
+            }
+
+            .header-social-links {
+                display: none;
+            }
+
         }
 
-        .dropdown-submenu {
-            position: relative;
-        }
+        @media (min-width: 840px) {
+            .cache {
+                display: none;
+            }
 
-        .dropdown-submenu > .dropdown-menu {
-            top: 0;
-            left: 100%;
-            margin-top: -6px;
-        }
-
-        /* rotate caret on hover */
-        .dropdown-menu > li > a:hover:after {
-            text-decoration: underline;
-            transform: rotate(-90deg);
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-around;
-            width: 100%;
+            .nav-lg {
+                display: flex;
+            }
         }
 
     </style>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark text-light p-3">
-        <h1><a class="navbar-brand pb-2" href="#">AnthoWebDesign</a></h1>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- ====== BLOG ====== -->
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false"> Blog </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li class="dropdown-submenu">
-                            <a class="dropdown-item dropdown-toggle" href="#">Categories</a>
-                            <ul class="dropdown-menu">
 
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        cat
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a class="dropdown-item" href="#">article</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-
+    <!-- ======= Header ======= -->
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid d-flex align-items-center justify-content-between">
+            <a href="{% url 'home' %}" class="logo d-flex align-items-center  me-auto me-lg-0">
+                <!-- Uncomment the line below if you also wish to use an image logo -->
                 <!--
-                    ====== PORTFOLIO ======
+                <img src="assets/img/logo.png" alt="">
                  -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false"> Poerfolio </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <i class="bi bi-camera"></i>
+                <h1>Antho WebDev</h1>
+            </a>
+            <div class="cache">
+                <div class="navbar-collapse justify-content-md-center" id="myNavbarsExample10">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link menu-anim btn-mbl" href="{% url 'project_category_list' %}"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-regular fa-bars"></i>
+                            </a>
 
-                        <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Categories</a>
-                        {% for categorie in categories_list %}
                             <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item" href="#">{{ categorie.category_name }}</a>
-                                    <ul class="dropdown-menu">
-                                        {% for project in projects_list %}
-                                        <li>
-                                            <a class="dropdown-item" href="#">{{ project.title }}</a>
-                                        </li>
-                                        {% endfor %}
-                                    </ul>
+                                <li><a class="dropdown-item" href="{% url 'index_portfolio' %}">Accueuil</a></li>
+                                <li><a class="dropdown-item" href="{% url 'project_category_list' %}">Catégories</a>
                                 </li>
+                                <li><a class="dropdown-item" href="{% url 'index_blog' %}">blog</a></li>
+                                <li><a class="dropdown-item" href="{% url 'contact' %}">Contact</a></li>
                             </ul>
-                        {% endfor %}
                         </li>
                     </ul>
+                </div>
+            </div>
+            <div class="nav-lg">
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <li>
+                            <a href="{% url 'index_portfolio' %}" class="active">
+                                <i class="fa fa-solid fa-house"></i>
+                                Home
+                            </a>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#">
+                                <span>Blog</span>
+                                <i class="bi bi-chevron-down dropdown-indicator"></i>
+                            </a>
+                            <ul>
+                                <!-- eco déménagement -->
+                                <li class="dropdown">
+                                    <a href="#">
+                                        <span>Catégories</span>
+                                        <i class="bi bi-chevron-down dropdown-indicator"></i>
+                                    </a>
+                                </li>
+                                <!-- la cordée numérique -->
+                                <li>
+                                    <a href="{% url 'blog_post_dev' %}">Développement</a>
+                                </li>
+                                <!-- la cordée numérique -->
+                                <li>
+                                    <a href="{% url 'blog_post_cyber' %}">Cybersécurité</a>
+                                </li>
+
+                                <!-- pizzeria -->
+                                <li>
+                                    <a href="{% url 'blog_post_ia' %}">Intelligence artificielle</a>
+                                </li>
+
+                                <!-- cryptommonnaie -->
+                                <li>
+                                    <a href="{% url 'blog_post_cryptos' %}">Cryptomonnaie</a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <!-- ===== Dropdown ===== -->
+                        <li class="dropdown">
+                            <a href="{% url 'project_category_list' %}">
+                                <span>Catégories projets</span>
+                                <i class="bi bi-chevron-down dropdown-indicator"></i>
+                            </a>
+                            <ul>
+                                {% for cat in categorie_list %}
+                                    <li>
+                                        <a href="{% url 'project_list' cat.slug %}">{{ cat.category_name }}</a>
+                                    </li>
+                                {% endfor %}
+                                <!-- eco déménagement -->
+                            </ul>
+                        </li>
+                    <li>
+                    <a href="{% url 'certificats' %}">
+                        Certificats
+                    </a>
                 </li>
-            </ul>
+                <li>
+                    <a href="{% url 'contact' %}">
+                        Contact
+                    </a>
+                </li>
+                    </ul>
+                    <!-- ===== End sub Dropdown ===== -->
+
+
+                    <!-- .navbar -->
+                    <div class="header-social-links">
+
+                        <a href="https://github.com/Antho-Webdesign" class="github">
+                            <i class="fa fa-2x fa-github"></i>
+                        </a>
+
+                        <a href="https://github.com/Antho-Webdesign" class="linkedin">
+                            <i class="fa fa-2x fa-linkedin"></i>
+                        </a>
+
+                    </div>
+                </nav>
+            </div>
         </div>
-        <li>
-            <a class="dropdown-item" href="#">Contact</a>
-        </li>
-    </nav>
+    </header>
+    <!-- .End Header -->
+
 {% endblock %}
