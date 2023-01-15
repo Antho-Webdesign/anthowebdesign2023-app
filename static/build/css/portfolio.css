@@ -1372,4 +1372,8 @@ a:hover:after {
   padding: 0;
 }
 
+.flip > .front, .flip > .back {
+  padding: 0px 2em !important;
+}
+
 /*# sourceMappingURL=../build/css/portfolio.css.map */
