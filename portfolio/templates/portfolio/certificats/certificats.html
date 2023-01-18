@@ -115,10 +115,17 @@
             height: 290px;
         }
 
-        div.box-title {
+        .box-title {
             display: flex;
             justify-content: center;
             margin: 50px auto;
+        }
+
+        .certif-btn-retour {
+            display: flex !important;
+            justify-content: center !important;
+            margin: 50px auto !important;
+            width: 20%;
         }
 
     </style>
@@ -143,6 +150,7 @@
                 </div>
             {% endfor %}
         </div>
+    <a href="{% url 'home' %}" class="btn btn-warning certif-btn-retour">Retour</a>
     </div>
 
 {% endblock %}
