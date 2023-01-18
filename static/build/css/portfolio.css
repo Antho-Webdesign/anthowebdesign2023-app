@@ -1373,7 +1373,40 @@ a:hover:after {
 }
 
 .flip > .front, .flip > .back {
-  padding: 0px 2em !important;
+  padding: 0 2em !important;
+}
+
+/*
+* PAGE LIST_CATEGORY
+*/
+.card-cat {
+  display: flex;
+  width: 66% !important;
+  color: black;
+  background: #fff;
+  align-items: center;
+  margin: 80px auto;
+}
+
+.card-img-top {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 450px;
+}
+
+.card-body {
+  display: flex;
+  height: 75%;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 40px;
+  width: 100%;
+}
+
+.card-text {
+  font-size: 1.2em;
+  font-style: oblique;
+  line-height: 1.8;
 }
 
 /*# sourceMappingURL=../build/css/portfolio.css.map */
