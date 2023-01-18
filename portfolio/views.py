@@ -74,6 +74,7 @@ def details_projet(request, slug):
     details_project = get_object_or_404(Project, slug=slug)
     return render(request, 'portfolio/projets/category/details_projet.html', {'details_project': details_project})
 
+
 def certificats(request):
     queryset = Certificat.objects.all()
     context = {
@@ -81,5 +82,3 @@ def certificats(request):
     }
 
     return render(request, 'portfolio/certificats/certificats.html', context)
-
-
