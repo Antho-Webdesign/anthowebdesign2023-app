@@ -35,6 +35,29 @@
             font-size: 1.1em;
         }
 
+        .img-details-produit {
+            width: 40%;
+            height: 100%;
+            margin: auto;
+        }
+
+        .details-box-text-produits {
+            width: 45%;
+            height: 100%;
+            margin: auto;
+        }
+
+        .details-text-produit {
+            font-size: 1.5em;
+        }
+
+        .container {
+            width: 90%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            max-width: none;
+        }
     </style>
 
     <main id="main" data-aos="fade" data-aos-delay="1500">
@@ -42,7 +65,7 @@
         <div class="page-header d-flex align-items-center">
             <div class="container position-relative">
                 <div class="row d-flex justify-content-center">
-                    <div class="col-lg-6 text-center">
+                    <div class="text-center">
                         <h2>{{ details_project.title }}</h2>
                         <a class="cta-btn" href="{{ details_project.project_url }}" target="blank">Lien ici !</a>
                     </div>
@@ -53,13 +76,13 @@
         <!-- ======= About Section ======= -->
         <section id="about" class="about">
             <div class="container">
-                <div class="row gy-4 justify-content-center">
-                    <div class="col-lg-6">
+                <div class="row gy-4 justify-content-center align-items-center m-auto">
+                    <div class="img-details-produit">
                         <img src="{{ details_project.project_thumbnail.url }}" class="testimonial-img" alt="">
                     </div>
-                    <div class="col-lg-6 content">
+                    <div class="details-box-text-produits content">
                         <h4 class="green">{{ details_project.project_goal }}</h4>
-                        <p class="fst-italic py-3">
+                        <p class="fst-italic py-3 details-text-produit">
                             {{ details_project.description }}
                         </p>
                         <div class="row">

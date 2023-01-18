@@ -3,14 +3,72 @@
 
 {% block content %}
     <!-- Boucle sur les projets -->
-<style>
+    <style>
 
-</style>
+        .card-cat {
+            display: flex;
+            width: 66% !important;
+            color: black;
+            background: #fff;
+            align-items: center;
+            margin: 50px auto;
+        }
+
+        .card-img-top {
+            width: 33% !important;
+            height: auto !important;
+        }
+
+        .card-body {
+            display: flex;
+            height: 75%;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 0 40px;
+            width: 100%;
+        }
+
+        .card-text {
+            font-size: 1.2em;
+            font-style: oblique;
+            line-height: 1.8;
+        }
+    </style>
     <div class="title">
-	    <h1>Liste de mes projets</h1>
+        <h1>Liste de mes projets</h1>
     </div>
 
     {% for project in project_list %}
+
+        <div class="card-cat text-dark">
+            <img class="animate card-img-top" src="{{ project.project_thumbnail.url }}" alt="{{ project.title }}"/>
+            <div class="card-body">
+                <p class="card-text">{{ project.date_created_on|date:'d/m/Y' }}</p>
+                <h1 class="card-title text-center mb-5">
+                    <strong>{{ project.title }}</strong>
+                </h1>
+
+                <p class="text-dark text-center" style="font-size: 1.7em;">
+                    Type : <span style="color: #df38df !important;">{{ project.type }}</span>
+                </p>
+
+                <p class="text-dark text-center" style="font-size: 1.7em;">
+                    Categorie : <span style="color: #f9981d !important;">{{ project.category }}</span>
+                </p>
+
+                <p class="text-dark text-center" style="font-size: 1.7em;">
+                    status : <span style="color: #ff503e !important;">{{ project.project_status }}</span>
+                </p>
+                <a href="{% url 'details_projet' project.slug %}" class="btn btn-primary">Détails</a>
+            </div>
+        </div>
+    {% endfor %}
+    <div class="flex justify-content-center mt-5 m-auto" style="justify-content: center; margin: auto; display: flex;">
+        <a href="{% url 'project_category_list' %}" class="btn btn-primary">Retour</a>
+    </div>
+{% endblock %}
+
+{% comment %}
         <div class="card">
             <img class="animate" src="{{ project.project_thumbnail.url }}" alt="img" style="height: 100%; margin: 0; padding: 0; width: 300px;"/>
             <div class="card__content">
@@ -22,12 +80,10 @@
                     {{ project.project_goal }}
                 </p>
                 <div class="col-xs-12 col-md-6">
-                    <a href="{% url 'details_projet' project.slug %}" class="btn btn-primary">Voir le projet</a>
+                    <a href="{% url 'details_projet' project.slug %}" class="btn btn-primary">Détails</a>
                 </div>
             </div>
         </div>
-    {% endfor %}
-    <div class="flex justify-content-center mt-5 m-auto" style="justify-content: center; margin: auto; display: flex;">
-        <a href="{% url 'project_category_list' %}" class="btn btn-primary">Retour</a>
-    </div>
-{% endblock %}
+        {% endcomment %}
+
+

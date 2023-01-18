@@ -23,8 +23,6 @@ class Categorie(models.Model):
                                   default='images/default.png')
     projet_cat_description = models.TextField(max_length=2500, blank=True, null=True)
 
-
-
     def __str__(self):
         return self.category_name
 
@@ -73,7 +71,8 @@ class Project(models.Model):
 
 class Certificat(models.Model):
     name = models.CharField(max_length=120, blank=True, null=True)
-    image = models.ImageField(upload_to='images/portfolio/certificats/', blank=True, null=True, default='images/default.png')
+    image = models.ImageField(upload_to='images/portfolio/certificats/', blank=True, null=True,
+                              default='images/default.png')
     slug = models.SlugField(max_length=250, unique=True)
     delivery_date = models.DateTimeField(auto_now=True, blank=True, null=True)
     delivrer_par = models.CharField(max_length=120, blank=True, null=True)
