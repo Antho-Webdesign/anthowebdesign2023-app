@@ -2990,94 +2990,94 @@ p {
 # blog:cyber:post:detail
 --------------------------------------------------------------*/
 .separateur {
-            border-bottom: 1px solid #292727;
-            margin: 45px auto;
-            padding: 0 !important;
-        }
+  border-bottom: 1px solid #292727;
+  margin: 45px auto;
+  padding: 0 !important;
+}
 
-        .card-text {
-            color: black;
-            width: 100%;
-            display: flex;
-            max-width: none;
-            text-align: justify;
-            line-height: 2;
-            font-size: 1.3em;
-            margin: 0;
-        }
+.card-text {
+  color: black;
+  width: 100%;
+  display: flex;
+  max-width: none;
+  text-align: justify;
+  line-height: 2;
+  font-size: 1.3em;
+  margin: 0;
+}
 
-        .card-body {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            max-width: none;
-            justify-content: center;
-            margin: auto;
-            min-width: 700px;
-        }
+.card-body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: none;
+  justify-content: center;
+  margin: auto;
+  min-width: 700px;
+}
 
-        .post-subtitle {
-            font-size: 0.9em;
-            margin: 0;
-            color: #ea0c93;
-            font-weight: bold;
-            font-style: oblique;
-        }
+.post-subtitle {
+  font-size: 0.9em;
+  margin: 0;
+  color: #ea0c93;
+  font-weight: bold;
+  font-style: oblique;
+}
 
-        .col-md-8 {
-            display: flex;
-            padding: 50px;
-        }
+.col-md-8 {
+  display: flex;
+  padding: 50px;
+}
 
-        .post-title {
-            color: black;
-        }
+.post-title {
+  color: black;
+}
 
-        .flex-post-head {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
+.flex-post-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
 
-        .post-img {
-            width: 25%;
-            border-radius: 15px;
-        }
+.post-img {
+  width: 25%;
+  border-radius: 15px;
+}
 
-        @media screen and (max-width: 850px) {
+@media screen and (max-width: 850px) {
 
-            .container {
-                padding: 0;
-                display: flex;
-                flex-direction: column;
-                width: 95%;
-                justify-content: center;
-                margin: auto;
-            }
+  .container {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    justify-content: center;
+    margin: auto;
+  }
 
-            .row {
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                margin: 0;
-            }
+  .row {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+  }
 
-            .card-body {
-                display: flex !important;
-                flex-direction: column !important;
-                width: 100% !important;
-                margin: 0;
-                min-width: 90% !important;
-                padding: 0;
-                text-align: center;
-            }
+  .card-body {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    margin: 0;
+    min-width: 90% !important;
+    padding: 0;
+    text-align: center;
+  }
 
-            .card-corp {
-                padding: 10px !important;
-            }
+  .card-corp {
+    padding: 10px !important;
+  }
 
-            .card-text {
-                font-size: 1.1em;
-            }
-        }
+  .card-text {
+    font-size: 1.1em;
+  }
+}
