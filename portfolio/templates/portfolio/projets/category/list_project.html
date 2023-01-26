@@ -4,11 +4,19 @@
 {% block content %}
     <!-- Boucle sur les projets -->
     <style>
-        .card-img-top {
-            width: 45% !important;
-            height: 100% !important;
-        }
 
+        .card-img-top {
+            width: 25% !important;
+            padding: 20px !important;
+            border-radius: 50px !important;
+            border: solid 1px grey !important;
+            margin: 20px !important;
+        }
+        .btn-lightpurple {
+            background: #781fe6 !important;
+            color: #fff;
+            font-weight: bold;
+        }
     </style>
     <div class="title">
         <h1>Liste de mes projets</h1>
@@ -16,8 +24,8 @@
 
     {% for project in project_list %}
 
-        <div class="card-cat text-dark">
-            <img class="animate card-img-top" src="{{ project.project_thumbnail.url }}" alt="{{ project.title }}"/>
+        <div class="card-cat text-dark" style="padding: 40px;">
+            <img class="card-img-top animate" src="{{ project.project_thumbnail.url }}" alt="{{ project.title }}"/>
             <div class="card-body">
                 <p class="card-text text-end text-primary">{{ project.date_created_on|date:'d/m/Y' }}</p>
                 <h1 class="card-title text-center mb-5">
@@ -35,12 +43,12 @@
                 <p class="text-dark text-center" style="font-size: 1.7em;">
                     status : <span style="color: #ff503e !important;">{{ project.project_status }}</span>
                 </p>
-                <a href="{% url 'details_projet' project.slug %}" class="btn btn-primary">Détails</a>
+                <a href="{% url 'details_projet' project.slug %}" class="btn btn-lightpurple">Détails</a>
             </div>
         </div>
     {% endfor %}
     <div class="flex justify-content-center mt-5 m-auto" style="justify-content: center; margin: auto; display: flex;">
-        <a href="{% url 'project_category_list' %}" class="btn btn-primary">Retour</a>
+        <a href="{% url 'project_category_list' %}" class="btn btn-warning">Retour</a>
     </div>
 {% endblock %}
 
