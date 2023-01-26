@@ -2,7 +2,17 @@
 {% load static %}
 
 {% block content %}
+<style>
 
+.card-img-top {
+  width: 33% !important;
+  padding: 20px !important;
+  border-radius: 50px !important;
+  border: solid 1px grey !important;
+  margin: 20px !important;
+}
+
+</style>
     <div class="title">
         <h1>Liste des categories</h1>
     </div>
@@ -11,7 +21,7 @@
 
         {% for cat in categorie_list %}
             <div class="card-cat text-dark">
-                <img class="animate card-img-top" src="{{ cat.image_cat.url }}" alt="img"/>
+                <img class="card-img-top animate" src="{{ cat.image_cat.url }}" alt="img"/>
                 <div class="card-body">
                     <h3 class="card-title text-center">{{ cat.category_name }}</h3>
                     <p class="card-text">{{ cat.projet_cat_description }}</p>
