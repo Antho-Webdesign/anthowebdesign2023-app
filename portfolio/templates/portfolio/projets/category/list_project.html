@@ -12,10 +12,19 @@
             border: solid 1px grey !important;
             margin: 20px !important;
         }
-        .btn-lightpurple {
-            background: #781fe6 !important;
+
+        .btn-cyan {
+            background: #1d9587e0 !important;
             color: #fff;
             font-weight: bold;
+        }
+
+        .card-text {
+            color: #ec750d !important;
+            margin: auto;
+            width: 100%;
+            display: flex;
+            justify-content: end;
         }
 
         @media screen and (max-width: 1780px) {
@@ -23,7 +32,9 @@
                 flex-direction: column !important;
             }
         }
+
     </style>
+
     <div class="title">
         <h1>Liste de mes projets</h1>
     </div>
@@ -39,17 +50,17 @@
                 </h1>
 
                 <p class="text-dark text-center" style="font-size: 1.7em;">
-                    Type : <span style="color: #df38df !important;">{{ project.type }}</span>
+                    Type : <span style="color: darkcyan !important;">{{ project.type }}</span>
                 </p>
 
                 <p class="text-dark text-center" style="font-size: 1.7em;">
-                    Categorie : <span style="color: #f9981d !important;">{{ project.category }}</span>
+                    Categorie : <span style="color: darkblue !important;">{{ project.category }}</span>
                 </p>
 
                 <p class="text-dark text-center" style="font-size: 1.7em;">
-                    status : <span style="color: #ff503e !important;">{{ project.project_status }}</span>
+                    status : <span style="color: darkmagenta !important;">{{ project.project_status }}</span>
                 </p>
-                <a href="{% url 'details_projet' project.slug %}" class="btn btn-lightpurple">Détails</a>
+                <a href="{% url 'details_projet' project.slug %}" class="btn btn-cyan">Détails</a>
             </div>
         </div>
     {% endfor %}
