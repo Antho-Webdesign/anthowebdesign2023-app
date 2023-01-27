@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 
 from blog.models import Post, Category
-from portfolio.models import Categorie, Project, Certificat
+from portfolio.models import Categorie, Project, Certificat, Tag
 
 
 def base(request):
@@ -63,16 +63,24 @@ def category_list(request):
 def project_list(request, slug):
     querycat = Categorie.objects.all()
     queryset = Project.objects.filter(category__slug=slug)
+    tag = Tag.objects.all()
     context = {
         'project_list': queryset,
         'categorie_list': querycat,
+        'tags': tag,
     }
     return render(request, 'portfolio/projets/category/list_project.html', context)
 
 
 def details_projet(request, slug):
     details_project = get_object_or_404(Project, slug=slug)
-    return render(request, 'portfolio/projets/category/details_projet.html', {'details_project': details_project})
+    tag = Tag.objects.all()
+    context = {
+        'details_project': details_project,
+        'tags': tag,
+    }
+
+    return render(request, 'portfolio/projets/category/details_projet.html', context)
 
 
 def certificats(request):

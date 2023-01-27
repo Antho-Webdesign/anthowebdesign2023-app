@@ -3,6 +3,20 @@ from django.db import models
 from django.urls import reverse
 
 
+class Tag(models.Model):
+    tag_name = models.CharField(max_length=120, blank=True, null=True)
+    slug = models.SlugField(max_length=120, blank=True, null=True)
+    image_tag = models.ImageField(upload_to='images/portfolio/prod/tag/', default='images/default.png', blank=True, null=True)
+
+    def __str__(self):
+        return self.tag_name
+
+    class Meta:
+        verbose_name = 'Tag'
+        verbose_name_plural = 'Tags'
+        ordering = ['tag_name']
+
+
 class Contact(models.Model):
     name = models.CharField(max_length=120, blank=True, null=True)
     email = models.EmailField(null=True, blank=True)
@@ -56,6 +70,7 @@ class Project(models.Model):
                                  blank=True, null=True)
     project_goal = models.CharField(max_length=500, blank=True, null=True)
     type = models.CharField(max_length=120, blank=True, null=True)
+    tags = models.ManyToManyField(Tag, related_name='tag_projects', blank=True)
 
     def __str__(self):
         return self.title

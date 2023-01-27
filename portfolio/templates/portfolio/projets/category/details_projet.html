@@ -48,7 +48,7 @@
         }
 
         .details-text-produit {
-            font-size: 1.5em;
+            font-size: 1.3em;
         }
 
         .container {
@@ -58,6 +58,11 @@
             justify-content: space-around;
             max-width: none;
         }
+
+        .about .content ul li {
+          font-size: 1.2em;
+        }
+
     </style>
 
     <main id="main" data-aos="fade" data-aos-delay="1500">
@@ -81,7 +86,7 @@
                         <img src="{{ details_project.project_thumbnail.url }}" class="testimonial-img" alt="">
                     </div>
                     <div class="details-box-text-produits content">
-                        <h4 class="green">{{ details_project.project_goal }}</h4>
+                        <h3 class="green">{{ details_project.project_goal }}</h3>
                         <p class="fst-italic py-3 details-text-produit">
                             {{ details_project.description }}
                         </p>
@@ -114,6 +119,21 @@
                         <br/>
                         <h2>Languages utilisés: </h2>
                         <div class="box-languages">
+                            <div class="box-env" data-aos="fade-up" data-aos-delay="200"
+                                 style="  display: flex; justify-content: space-around; width: 100%; flex-direction: row; margin: auto;">
+                                <div class="icon-box"
+                                     style="display: flex; margin: auto; width: 100%; justify-content: space-around;">
+                                    {% for tag in details_project.tags.all %}
+                                        <img src="{{ tag.image_tag.url }}" alt="PyCharm" style="width: 20% !important; max-width: 100%; margin: auto;">
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+
+                    {% comment %}
+                        <br/>
+                        <h2>Languages utilisés: </h2>
+                        <div class="box-languages">
                             <div class="box-env" data-aos="fade-up" data-aos-delay="200">
                                 <div class="icon-box">
                                     <img src="{% static 'images/languages/html-5.svg' %}" alt="PyCharm">
@@ -135,6 +155,8 @@
                                 </div>
                             </div>
                         </div>
+                        {% endcomment %}
+
                     </div>
                 </div>
             </div>
