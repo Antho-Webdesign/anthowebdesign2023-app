@@ -3,7 +3,12 @@
 
 {% block content %}
 <style>
-
+.btn-back {
+    margin: auto !important;
+    justify-content: center !important;
+    display: flex !important;
+    width: 25% !important;
+}
 </style>
 <!--===== separateur =====-->
 <div class="separateur"></div>
@@ -42,7 +47,7 @@
             </div>
         {% endif %}
     {% endfor %}
-	<a class="btn btn-warning" href="{% url 'index_blog' %}">Retour</a>
+	<a class="btn-back btn btn-warning" href="{% url 'index_blog' %}" style="display: flex; width: 25%; justify-content: center; margin: auto;">Retour</a>
 </div>
 
 {%  endblock %}

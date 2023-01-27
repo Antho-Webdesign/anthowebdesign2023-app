@@ -2,9 +2,14 @@
 {% load static %}
 
 {% block content %}
-    <style>
-
-    </style>
+<style>
+.btn-back {
+    margin: auto !important;
+    justify-content: center !important;
+    display: flex !important;
+    width: 25% !important;
+}
+</style>
     <!--===== separateur =====-->
     <div class="separateur"></div>
 
@@ -22,7 +27,7 @@
                             <img style="height: 100%" class="banner-image" src="{{ post.thumbnail.url }}"
                                  alt="{{ post.title }}">
                             <div class="box-card-infos">
-                                <h1 class="text-card-blog-list">{{ post.title }}</h1>
+                                <h2 class="text-card-blog-list">{{ post.title }}</h2>
                                 <p class="text-card-blog-list">
                                     Auteur : {{ post.author }}
                                 </p>
@@ -46,6 +51,6 @@
                 {% endif %}
             {% endfor %}
 
-        <a class="btn btn-warning" href="{% url 'index_blog' %}">Retour</a>
+        <a class="btn-back btn btn-warning" href="{% url 'index_blog' %}">Retour</a>
     </div>
 {% endblock %}
