@@ -1,6 +1,12 @@
 # antho-webdesign
 ## Portfolio 
 
+# TODO 
+- [x] Créer le projet
+-  [ ] Supprimer les fichiers de style inutiles
+-  [ ] Créer le fichier de style.scss + @import des styles (portfolio, home ...)
+
+
 ### Description
 
 Ce projet est un portfolio qui permet de présenter mes compétences et mes réalisations.
