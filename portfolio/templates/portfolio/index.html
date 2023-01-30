@@ -2,44 +2,82 @@
 {% load static %}
 
 {% block content %}
+<style>
+
+#hero {
+    background: radial-gradient(circle, #664e4e 0%, black 100%) !important;
+}
+
+#hero p span {
+    border-bottom: 2px solid rgba(140, 137, 137, 0.91);
+}
+
+.entete-index {
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  display: inline-block;
+  border: 4px double rgba(255, 255, 255, 0.25);
+  border-width: 4px 0;
+  padding: 1.5em 0em;
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  width: 40em;
+  margin: 0 0 0 -20em;
+}
+
+.entete-index .title-index {
+  font: 700 4em/1 "Oswald", sans-serif;
+  letter-spacing: 0;
+  padding: 0.25em 0 0.325em;
+  display: block;
+  margin: 0 auto;
+  text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
+  /* Clip Background Image */
+  background: url(https://i.ibb.co/RDTnNrT/animated-text-fill.png) repeat-y;
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* Animate Background Image */
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: aitf 80s linear infinite;
+  /* Activate hardware acceleration for smoother animations */
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+}
+
+#hero p span {
+  margin: 0 0 75px 0;
+}
+
+#hero p {
+  margin-top: 75px;
+}
+
+/* Animate Background Image */
+@-webkit-keyframes aitf {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+</style>
 
     <main id="main" data-aos="fade" data-aos-delay="1500" class="bg-dark">
 
         <!-- ======= Hero Section ======= -->
-        <section id="hero" class="hero d-flex flex-column justify-content-center align-items-center"
-                 data-aos="fade" data-aos-delay="1500">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6 text-center">
-                        <h2>Bienvenue sur
-                            <br/>
-                            <span>
-                  <strong class="titre-toutchy">
-                       AnthoWebDesign
-                  </strong>
-              </span>
-                            <br/>
-                            la destination
-                            <br/>
-                            pour vos projets numériques
-                        </h2>
-                        <p>
-                            "Bienvenue sur anthowebdesign, votre destination pour tous vos besoins en matière de
-                            création de sites web.
-                            Nous sommes fiers de vous offrir des designs uniques et modernes qui vous aideront à vous
-                            démarquer sur internet.
-                            Que vous soyez une entreprise en croissance ou un individu à la recherche de votre propre
-                            présence en ligne, nous avons ce qu'il vous faut."
-                        </p>
-                    </div>
-                </div>
-            </div>
-
+        <section id="hero">
+            <p class="entete-index">
+                Welcome to my
+                <span class="title-index">AnthoWebDesign</span>
+                &mdash; Portfolio &mdash;
+            </p>
         </section>
 
         <!-- ======= Skills ======= -->
         <section id="skills" class="skills section-bg">
-
             <div class="container">
                 <div class="section-title">
                     <h2>Skills</h2>
