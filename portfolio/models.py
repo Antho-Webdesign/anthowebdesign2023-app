@@ -6,7 +6,8 @@ from django.urls import reverse
 class Tag(models.Model):
     tag_name = models.CharField(max_length=120, blank=True, null=True)
     slug = models.SlugField(max_length=120, blank=True, null=True)
-    image_tag = models.ImageField(upload_to='images/portfolio/prod/tag/', default='images/default.png', blank=True, null=True)
+    image_tag = models.ImageField(upload_to='images/portfolio/prod/tag/', default='images/default.png', blank=True,
+                                  null=True)
 
     def __str__(self):
         return self.tag_name
