@@ -1448,7 +1448,11 @@ a:hover:after {
 }
 
 /*
-* PAGE LIST_CATEGORY
+* ========= PAGE LIST_PROJECTS =========
+*/
+
+/*
+* ========= PAGE LIST_CATEGORY =========
 */
 .card-cat {
   display: flex;
@@ -1457,10 +1461,15 @@ a:hover:after {
   background: #fff;
   align-items: center;
   margin: 80px auto;
+  padding: 40px !important;
 }
 
 .card-img-top {
-  width: 100% !important;
+  width: 33% !important;
+  padding: 20px !important;
+  border-radius: 50px !important;
+  border: solid 1px grey !important;
+  margin: 20px !important;
   height: 100% !important;
   max-height: 450px;
 }
@@ -1480,13 +1489,3 @@ a:hover:after {
   line-height: 1.8;
 }
 
-/* category projet */
-
-.card-img-top {
-  padding: 20px 0 !important;
-  margin: 0 40px !important;
-}
-
-.card-cat {
-  padding: 40px !important;
-}

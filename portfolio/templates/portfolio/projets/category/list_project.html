@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block content %}
-    <!-- Boucle sur les projets -->
     <style>
 
         .card-img-top {
@@ -37,18 +36,18 @@
     </style>
 
     <div class="title">
-        <h1>Liste de mes projets</h1>
+        <h1>Liste des projets</h1>
     </div>
 
     {% for project in project_list %}
 
-        <div class="card-cat text-dark" style="padding: 40px;">
+        <div class="card-cat text-dark">
             <img class="card-img-top animate" src="{{ project.project_thumbnail.url }}" alt="{{ project.title }}"/>
             <div class="card-body">
 
                 <p class="card-text text-end text-primary">{{ project.date_created_on|date:'d/m/Y' }}</p>
-                <h1 class="card-title text-center mb-5">
-                    <strong>{{ project.title }}</strong>
+                <h1 class="text-secondary card-title text-center mb-5">
+                    <strong style="background: #13CFCF; background: linear-gradient(to right, #1AB9B9 0%, #D02EB7 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">{{ project.title }}</strong>
                 </h1>
 
                 <p class="text-dark text-center" style="font-size: 1.7em;">
@@ -62,7 +61,9 @@
                 <p class="text-dark text-center" style="font-size: 1.7em;">
                     status : <span style="color: darkmagenta !important;">{{ project.project_status }}</span>
                 </p>
+
                 <a href="{% url 'details_projet' project.slug %}" class="btn btn-cyan">Détails</a>
+
             </div>
         </div>
     {% endfor %}
