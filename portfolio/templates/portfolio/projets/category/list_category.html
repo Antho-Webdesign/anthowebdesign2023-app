@@ -2,19 +2,59 @@
 {% load static %}
 
 {% block content %}
-<style>
+    <style>
 
-.card-img-top {
-  width: 33% !important;
-  padding: 20px !important;
-  border-radius: 50px !important;
-  border: solid 1px grey !important;
-  margin: 20px !important;
-}
+        .card-img-top {
+            width: 33% !important;
+            padding: 20px !important;
+            border-radius: 50px !important;
+            border: solid 1px grey !important;
+            margin: 20px !important;
+        }
 
-</style>
+        @media screen and (max-width: 550px) {
+            .card-title {
+                margin: 15px auto !important;
+            }
+
+            .card-cat {
+                /* width: 66% !important; */
+                /* padding: 40px !important; */
+                width: 90% !important;
+                padding: 0 !important;
+                flex-direction: column;
+            }
+
+            .card-body {
+                /* padding: 0 40px; */
+                padding: 0 15px;
+            }
+
+            .card-text {
+                /* font-size: 1.2em; */
+                font-size: 1em;
+            }
+
+            .card-img-top {
+                /* width: 33% !important; */
+                width: 80% !important;
+            }
+
+            .btn-card-cat {
+                /* width: 25%; */
+                /* margin: 0 auto; */
+                width: 33% !important;
+                margin: 20px auto !important;
+            }
+
+            .titre-cat {
+                font-size: 1.7em;
+                margin-top: 50px;
+            }
+        }
+    </style>
     <div class="title">
-        <h1>Categories Projets</h1>
+        <h1 class="titre-cat">Categories Projets</h1>
     </div>
 
     <div class="box">
@@ -26,7 +66,7 @@
 
                     <h3 class="card-title text-center">{{ cat.category_name }}</h3>
                     <p class="card-text">{{ cat.projet_cat_description }}</p>
-                    <a href="{% url 'project_list' cat.slug %}" class="btn btn-primary"
+                    <a href="{% url 'project_list' cat.slug %}" class="btn btn-primary btn-card-cat"
                        style="width:25%; margin: 0 auto; color: #fff;">
                         <i class="fa fa-arrow-right fa-fw"></i>
                     </a>

@@ -33,10 +33,55 @@
             }
         }
 
+        @media screen and (max-width: 550px) {
+
+            /* portfolio.css | http://127.0.0.1:8000/static/build/css/portfolio.css */
+            .card-cat {
+                /* width: 66% !important; */
+                /* padding: 40px !important; */
+                width: 90% !important;
+                padding: 15px !important;
+                flex-direction: column;
+            }
+
+            .card-title {
+                /* font-size: 2.4rem; */
+                font-size: 1.5em;
+            }
+
+            .card-body {
+                /* height: 75%; */
+                /* padding: 0 40px; */
+                padding: 0 !important;
+            }
+
+            /* Feuille de style intégrée #10 | http://127.0.0.1:8000/portfolio/liste/projets/applications-web */
+            .card-img-top {
+                /* width: 25% !important; */
+                width: 80% !important;
+            }
+
+            /* home.css | http://127.0.0.1:8000/static/build/css/home.css */
+            .titre-projet {
+                /* font-size: 2.4rem; */
+                font-size: 2em;
+            }
+
+            /* Élément | http://127.0.0.1:8000/portfolio/liste/projets/applications-web */
+            div.card-cat > div > p{
+                /* font-size: 1.7em; */
+                font-size: 0.9em !important;
+            }
+
+            .pr-title {
+                /* font-size: 2.4rem; */
+                font-size: 1em !important;
+            }
+        }
     </style>
 
     <div class="title">
-        <h1>Liste des projets</h1>
+        <h1  class="titre-projet mt-5">Liste des projets</h1>
     </div>
 
     {% for project in project_list %}
@@ -50,7 +95,7 @@
                 <p class="card-text text-end text-primary">{{ project.date_created_on|date:'d/m/Y' }}</p>
 
                 <h1 class="text-secondary card-title text-center mb-5">
-                    <strong style="background: #13CFCF; background: linear-gradient(to right, #1AB9B9 0%, #D02EB7 100%);
+                    <strong class="pr-title" style="background: #13CFCF; background: linear-gradient(to right, #1AB9B9 0%, #D02EB7 100%);
                     -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: lighter">
                         {{ project.title }}
                     </strong>
