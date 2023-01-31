@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_sass_compiler',
     'django_bootstrap5',
+    'imagekit',
     'home',
     'portfolio',
     'blog',

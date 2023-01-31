@@ -1,6 +1,9 @@
+from PIL import Image
 from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
+from imagekit.models import ImageSpecField
+from pilkit.processors import ResizeToFill
 
 
 class Tag(models.Model):
@@ -64,7 +67,7 @@ class Project(models.Model):
     date_created_on = models.DateTimeField(auto_now_add=True)
     project_status = models.CharField(choices=PROJECT_STATUS, default='en_cours', max_length=30)
     project_thumbnail = models.ImageField(upload_to='images/portfolio/production/project/',
-                                          default='images/default.png')
+                                          default='images/default.png', blank=True, null=True)
     project_url = models.URLField(max_length=200, default='#', blank=True, null=True)
     git_url = models.URLField(max_length=200, default='#', blank=True, null=True)
     category = models.ForeignKey(Categorie, on_delete=models.CASCADE, related_name='cat_projects',
@@ -89,9 +92,17 @@ class Certificat(models.Model):
     name = models.CharField(max_length=120, blank=True, null=True)
     image = models.ImageField(upload_to='images/portfolio/certificats/', blank=True, null=True,
                               default='images/default.png')
+    image_thumbnail = ImageSpecField(source='image',
+                                     processors=[ResizeToFill(150, 100)],
+                                     format='PNG',
+                                     options={'quality': 80})
+
     slug = models.SlugField(max_length=250, unique=True)
     delivery_date = models.DateTimeField(auto_now=True, blank=True, null=True)
     delivrer_par = models.CharField(max_length=120, blank=True, null=True)
+
+    def get_absolute_url(self):
+        return reverse('certificat_details', kwargs={'slug': self.slug})
 
     def __str__(self):
         return self.name
@@ -100,3 +111,16 @@ class Certificat(models.Model):
         ordering = ['-delivery_date']
         verbose_name = 'Certificat'
         verbose_name_plural = 'Certificats'
+
+    def save(self, *args, **kwargs):
+        self.image_thumbnail = self.image
+        super(Certificat, self).save(*args, **kwargs)
+        size = 150, 100
+        image = Image.open(self.image_thumbnail.path)
+        image.thumbnail(size, Image.ANTIALIAS)
+        image.save(self.image_thumbnail.path)
+
+    def delete(self, *args, **kwargs):
+        self.image_thumbnail.delete()
+        super(Certificat, self).delete(*args, **kwargs)
+
