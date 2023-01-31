@@ -34,7 +34,7 @@ class Contact(models.Model):
 class Categorie(models.Model):
     category_name = models.CharField(max_length=120, blank=True, null=True)
     slug = models.SlugField(max_length=120, blank=True, null=True)
-    image_cat = models.ImageField(upload_to='images/portfolio/prod/category/',
+    image_cat = models.ImageField(upload_to='images/portfolio/production/category/',
                                   default='images/default.png')
     projet_cat_description = models.TextField(max_length=2500, blank=True, null=True)
 
@@ -63,7 +63,7 @@ class Project(models.Model):
     description = models.TextField()
     date_created_on = models.DateTimeField(auto_now_add=True)
     project_status = models.CharField(choices=PROJECT_STATUS, default='en_cours', max_length=30)
-    project_thumbnail = models.ImageField(upload_to='images/portfolio/prod/project/',
+    project_thumbnail = models.ImageField(upload_to='images/portfolio/production/project/',
                                           default='images/default.png')
     project_url = models.URLField(max_length=200, default='#', blank=True, null=True)
     git_url = models.URLField(max_length=200, default='#', blank=True, null=True)
