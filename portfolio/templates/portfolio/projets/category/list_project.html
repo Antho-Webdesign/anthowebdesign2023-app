@@ -33,10 +33,26 @@
             }
         }
 
+        @media screen and (min-width: 550px) and (max-width: 880px) {
+
+            /* portfolio.css | http://127.0.0.1:8000/static/build/css/portfolio.css */
+            .card-cat {
+                flex-direction: column !important;
+            }
+
+            /* Feuille de style intégrée #10 | http://127.0.0.1:8000/portfolio/liste/projets/applications-web */
+            .card-img-top {
+                /* width: 25% !important; */
+                width: 55% !important;
+            }
+
+        }
+
         @media screen and (max-width: 550px) {
 
             /* portfolio.css | http://127.0.0.1:8000/static/build/css/portfolio.css */
             .card-cat {
+                display: flex !important;
                 /* width: 66% !important; */
                 /* padding: 40px !important; */
                 width: 90% !important;
@@ -68,7 +84,7 @@
             }
 
             /* Élément | http://127.0.0.1:8000/portfolio/liste/projets/applications-web */
-            div.card-cat > div > p{
+            div.card-cat > div > p {
                 /* font-size: 1.7em; */
                 font-size: 0.9em !important;
             }
@@ -81,7 +97,7 @@
     </style>
 
     <div class="title">
-        <h1  class="titre-projet mt-5">Liste des projets</h1>
+        <h1 class="titre-projet mt-5">Liste des projets</h1>
     </div>
 
     {% for project in project_list %}
