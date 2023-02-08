@@ -38,7 +38,7 @@ class Categorie(models.Model):
     category_name = models.CharField(max_length=120, blank=True, null=True)
     slug = models.SlugField(max_length=120, blank=True, null=True)
     image_cat = models.ImageField(upload_to='images/portfolio/production/category/',
-                                  default='images/default.png')
+                                  default='images/default.png', blank=True, null=True)
     projet_cat_description = models.TextField(max_length=2500, blank=True, null=True)
 
     def __str__(self):
@@ -51,6 +51,7 @@ class Categorie(models.Model):
         verbose_name = 'Categorie'
         verbose_name_plural = 'Categories'
         ordering = ['category_name']
+
 
 
 PROJECT_STATUS = (
